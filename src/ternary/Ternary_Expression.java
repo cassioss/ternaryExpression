@@ -100,7 +100,7 @@ public class Ternary_Expression {
         Expression_Tree exp = new Expression_Tree(root);
         return exp;
     }
-
+/*
     public static void main(String[] args) {
         String s = "a?c:d";
         String[] s1 = s.split("\\?");
@@ -108,5 +108,6 @@ public class Ternary_Expression {
             System.out.println(s1[i]);
         }
     }
+*/
 
 }
