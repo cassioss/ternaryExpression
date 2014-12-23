@@ -33,7 +33,7 @@ public class Ternary_Expression {
 
         /* Parse the expression at question marks or colons */
 
-        String[] parse_question_colon = expression.split("[\\:\\?]");
+        String[] parse_question_colon = expression.split("\\?|\\:");
 
         /* Rejects if the parsing has empty characters */
 
@@ -100,14 +100,12 @@ public class Ternary_Expression {
         Expression_Tree exp = new Expression_Tree(root);
         return exp;
     }
-/*
+
     public static void main(String[] args) {
-        String s = "a?c:d";
-        String[] s1 = s.split("\\?");
-        for (int i = 0; i > s1.length; i++) {
+        String s = "a?c::d";
+        String[] s1 = s.split("\\?|\\:");
+        for (int i = 0; i < s1.length; i++)
             System.out.println(s1[i]);
-        }
     }
-*/
 
 }
