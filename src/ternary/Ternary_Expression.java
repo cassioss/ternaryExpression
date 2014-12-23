@@ -57,9 +57,23 @@ public class Ternary_Expression {
         return true;
     }
 
+    /**
+     * A method that parses a String by colons or question marks
+     *
+     * @param expression - an expression to be parsed
+     * @return a String array containing the parsed expression
+     */
+
     private static String[] parseByColonQuestion(String expression) {
         return expression.split("\\?|\\:");
     }
+
+    /**
+     * Looks if there are any duplicates on a String array
+     *
+     * @param parse_question_colon - a string array
+     * @return true if duplicates are found
+     */
 
     private static boolean duplicatesIn(String[] parse_question_colon) {
 
@@ -72,6 +86,13 @@ public class Ternary_Expression {
 
     }
 
+    /**
+     * See if the last element in a string is a colon or a question mark
+     *
+     * @param expression - an expression to be verified
+     * @return true if the last character is a colon or a question mark
+     */
+
     private static boolean endsWithColonOrQuestion(String expression) {
         char last_char = expression.charAt(expression.length() - 1);
         if (last_char == ':' || last_char == '?')
@@ -80,6 +101,8 @@ public class Ternary_Expression {
     }
 
     /**
+     * Sees if a String has equal number of colons and question marks, having question marks always before the colons
+     *
      * @param expression - a String to be verified in terms of having colons and question marks
      * @return true if the number of colons is equal to the number of question marks
      */
@@ -102,6 +125,8 @@ public class Ternary_Expression {
     }
 
     /**
+     * Sees if any elements in a String array are empty or null
+     *
      * @param parsed - a String array parsed after a String of a ternary expression
      * @return true if one of the elements is null or empty
      */
@@ -116,6 +141,8 @@ public class Ternary_Expression {
     }
 
     /**
+     * Sees if a String is empty or null
+     *
      * @param ref - a String being verified
      * @return true if the String is null or empty
      */
