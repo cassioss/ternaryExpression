@@ -1,5 +1,7 @@
 package ternary;
 
+import java.util.HashSet;
+
 /**
  * Created by Cassio dos Santos Sousa on Nov/29/2014.
  */
@@ -40,10 +42,43 @@ public class Ternary_Expression {
         if (emptyElementsIn(parse_question_colon))
             return false;
 
+        /* There is a chance that an expression with colons in the end may pass the last method */
+
+        if (endsWithColonOrQuestion(expression))
+            return false;
+
+        /* Rejects expressions with duplicates */
+
+        if (duplicatesIn(parse_question_colon))
+            return false;
+
         /* If the expression goes through the entire method, the String is valid */
 
         return true;
     }
+
+    private static boolean duplicatesIn(String[] parse_question_colon) {
+
+        HashSet<String> lump = new HashSet<String>();
+        for (String s : parse_question_colon) {
+            if (lump.contains(s)) return true;
+            lump.add(s);
+        }
+        return false;
+
+    }
+
+    private static boolean endsWithColonOrQuestion(String expression) {
+        char last_char = expression.charAt(expression.length() - 1);
+        if (last_char == ':' || last_char == '?')
+            return true;
+        return false;
+    }
+
+    /**
+     * @param expression - a String to be verified in terms of having colons and question marks
+     * @return true if the number of colons is equal to the number of question marks
+     */
 
     private static boolean equalQuestionBeforeColon(String expression) {
         int counter = 0;
@@ -63,7 +98,7 @@ public class Ternary_Expression {
     }
 
     /**
-     * @param parsed - a String array that came after parsing a String
+     * @param parsed - a String array parsed after a String of a ternary expression
      * @return true if one of the elements is null or empty
      */
 
@@ -99,13 +134,6 @@ public class Ternary_Expression {
 
         Expression_Tree exp = new Expression_Tree(root);
         return exp;
-    }
-
-    public static void main(String[] args) {
-        String s = "a?c::d";
-        String[] s1 = s.split("\\?|\\:");
-        for (int i = 0; i < s1.length; i++)
-            System.out.println(s1[i]);
     }
 
 }
