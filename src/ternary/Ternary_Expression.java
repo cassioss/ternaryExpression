@@ -35,7 +35,7 @@ public class Ternary_Expression {
 
         /* Parse the expression at question marks or colons */
 
-        String[] parse_question_colon = expression.split("\\?|\\:");
+        String[] parse_question_colon = parseByColonQuestion(expression);
 
         /* Rejects if the parsing has empty characters */
 
@@ -55,6 +55,10 @@ public class Ternary_Expression {
         /* If the expression goes through the entire method, the String is valid */
 
         return true;
+    }
+
+    private static String[] parseByColonQuestion(String expression) {
+        return expression.split("\\?|\\:");
     }
 
     private static boolean duplicatesIn(String[] parse_question_colon) {
@@ -122,18 +126,6 @@ public class Ternary_Expression {
         if (ref == "" || ref.length() == 0)
             return true;
         return false;
-    }
-
-    /**
-     * @param expression - a String containing a valid ternary expression
-     * @return exp - an Expression containing the tree for this string
-     */
-
-    public static Expression_Tree parseExpression(String expression) {
-        Node root = new Node();
-
-        Expression_Tree exp = new Expression_Tree(root);
-        return exp;
     }
 
 }
